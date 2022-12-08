@@ -46,6 +46,55 @@ AES::AES(unsigned char Copy_PlainText[], unsigned char Copy_Key[])
 
 }
 
+void AES::Set_Data(unsigned char Copy_PlainText[], unsigned char Copy_Key[])
+{
+	//Input Preparation for plain text
+	uint8_t* PlainText_R1 = &(Copy_PlainText[0]) + 0;
+	uint8_t* PlainText_R2 = &(Copy_PlainText[0]) + 1;
+	uint8_t* PlainText_R3 = &(Copy_PlainText[0]) + 2;
+	uint8_t* PlainText_R4 = &(Copy_PlainText[0]) + 3;
+	//Input Preparation for Key word 0
+	uint8_t* Key_R1 = &(Copy_Key[0]) + 0;
+	uint8_t* Key_R2 = &(Copy_Key[0]) + 1;
+	uint8_t* Key_R3 = &(Copy_Key[0]) + 2;
+	uint8_t* Key_R4 = &(Copy_Key[0]) + 3;
+
+	for (int i = 0;i < 4;i++)
+	{
+		//plain text preparation
+		this->PlainText[i]    = *PlainText_R1;
+		this->PlainText[i+4]  = *PlainText_R2;
+		this->PlainText[i+8]  = *PlainText_R3;
+		this->PlainText[i+12] = *PlainText_R4;
+		
+		PlainText_R1 += 4;
+		PlainText_R2 += 4;
+		PlainText_R3 += 4;
+		PlainText_R4 += 4;
+		
+		//Key preparation
+		this->Key[i]      = *Key_R1;
+		this->Key[i + 4]  = *Key_R2;
+		this->Key[i + 8]  = *Key_R3;
+		this->Key[i + 12] = *Key_R4;
+
+		Key_R1 += 4;
+		Key_R2 += 4;
+		Key_R3 += 4;
+		Key_R4 += 4;
+	}
+
+
+
+
+
+
+
+
+
+}
+
+
 void AES::Substitute_Bytes(unsigned char * PlainText)
 {
 	unsigned  char x = -1;
@@ -54,8 +103,8 @@ void AES::Substitute_Bytes(unsigned char * PlainText)
 
 	for (int i = 0;i < 16;i++)
 	{
-		x = unsigned  char ((PlainText[i] & 0xF0)>>4);
-		y= unsigned  char(PlainText[i] & 0x0F);
+		x = (unsigned  char) ((PlainText[i] & 0xF0)>>4);
+		y= (unsigned  char)(PlainText[i] & 0x0F);
 
 		PlainText[i] = sbox[x][y];
 	}
@@ -70,8 +119,8 @@ void AES::Inv_Substitute_Bytes(unsigned char * PlainText)
 
 	for (int i = 0;i < 16;i++)
 	{
-		x = unsigned  char((PlainText[i] & 0xF0) >> 4);
-		y = unsigned  char(PlainText[i] & 0x0F);
+		x = (unsigned  char)((PlainText[i] & 0xF0) >> 4);
+		y = (unsigned  char)(PlainText[i] & 0x0F);
 
 		PlainText[i] = inv_sbox[x][y];
 	}
@@ -383,8 +432,8 @@ void AES::Sub_Word(uint32_t * Copy_word)
 		unsigned  char x = -1;
 		unsigned char y = -1;
 
-		x = unsigned  char((temp[i] & 0xF0) >> 4);
-		y = unsigned  char(temp[i] & 0x0F);
+		x = (unsigned  char)((temp[i] & 0xF0) >> 4);
+		y = (unsigned  char)(temp[i] & 0x0F);
 
 		temp[i] = sbox[x][y];
 		

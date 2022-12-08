@@ -31,6 +31,7 @@ class AES
 public:
 	AES()=delete;
 	AES(unsigned char Copy_PlainText[], unsigned char Copy_Key[]);
+	void Set_Data(unsigned char Copy_PlainText[], unsigned char Copy_Key[]);
 	void Substitute_Bytes(unsigned char* PlainText);
 	void Inv_Substitute_Bytes(unsigned char* PlainText);
 	void Shift_Rows(unsigned char* PlainText);
