@@ -9,3 +9,13 @@ AES Advanced Encryption Standards
 • Variable Key Size 16 Byte
 • Number of Rounds 10 Round
 • Round Key Size 16 Byte
+# Development
+run executable by command line arguments
+commands:
+g++ -o AES AES.cpp main.cpp
+# ENCRYPTION MODE
+./AES encrypt <input plaintext path>  <input key path> <output cipher text path>
+#DECRYPTION MODE
+./AES  decrypt <input cipher text path> <input key path> <output decrypted text path>
+
+
