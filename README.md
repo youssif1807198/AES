@@ -1,6 +1,5 @@
-# AES
-AES Advanced Encryption Standards
-• NIST Request New Algorithm in 1997
+# AES Advanced Encryption Standards
+ * NIST Request New Algorithm in 1997
 • AES is proposed by Dr. Joan Daemen and Dr.Vincent Rijmen, Belgium
 • NIST Select AES (Rijndael) in 2001
 • AES Replaces DES and 3DES
