@@ -11,11 +11,10 @@ AES Advanced Encryption Standards
 • Round Key Size 16 Byte
 # Development
 run executable by command line arguments
-commands:
 g++ -o AES AES.cpp main.cpp
 # ENCRYPTION MODE
-./AES encrypt <input plaintext path>  <input key path> <output cipher text path>
+./AES encrypt input_plaintext_path  input_key_path output_cipher_text_path
 # DECRYPTION MODE
-./AES  decrypt <input cipher text path> <input key path> <output decrypted text path>
+./AES  decrypt input_cipher_text_path input_key_path output_decrypted_text_path
 
 
