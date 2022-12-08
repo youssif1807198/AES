@@ -15,7 +15,7 @@ commands:
 g++ -o AES AES.cpp main.cpp
 # ENCRYPTION MODE
 ./AES encrypt <input plaintext path>  <input key path> <output cipher text path>
-#DECRYPTION MODE
+# DECRYPTION MODE
 ./AES  decrypt <input cipher text path> <input key path> <output decrypted text path>
 
 
