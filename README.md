@@ -9,7 +9,7 @@
 * Number of Rounds 10 Round
 * Round Key Size 16 Byte
 # Development
-run executable by command line arguments
+run executable by command line arguments under linux enviroment
 # Compile Files Command
 g++ -o AES AES.cpp main.cpp
 # ENCRYPTION MODE Command
