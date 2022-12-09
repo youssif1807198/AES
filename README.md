@@ -10,11 +10,11 @@
 * Round Key Size 16 Byte
 # Development
 run executable by command line arguments
-# Compile Files
+# Compile Files Command
 g++ -o AES AES.cpp main.cpp
-# ENCRYPTION MODE
+# ENCRYPTION MODE Command
 ./AES encrypt input_plaintext_path  input_key_path output_cipher_text_path
-# DECRYPTION MODE
+# DECRYPTION MODE Command
 ./AES  decrypt input_cipher_text_path input_key_path output_decrypted_text_path
 
 
