@@ -121,24 +121,11 @@ if(strcmp(mode.c_str(), "encrypt")==0)
 
     PlainText_fd=open(plain_text_path.c_str(),O_RDONLY);
        //open file to write encrypted data
-    Encrypt_fd=open(output_path.c_str(),O_RDWR|O_CREAT);
+    Encrypt_fd=open(output_path.c_str(),(S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH));
 
 
       while((check=read(PlainText_fd, (unsigned char *)(&PlainText[0]),16)) != 0) 
     {
-        //padding if text less than 16 bytes
-
-        if(check<16  )
-        {
-            std::cout<<"PADDING";
-            for(int i=check;i<16;i++)
-            {
-                PlainText[i]=0;
-
-            }
-
-        }
-
         enc.Set_Data(PlainText,key);
         enc.Encrypt(CipherText);
 
@@ -186,23 +173,10 @@ else if(strcmp(mode.c_str(), "decrypt")==0)
     PlainText_fd=open(plain_text_path.c_str(),O_RDONLY);
     
     //open file to write encrypted data
-    Decrypt_fd=open(output_path.c_str(),O_RDWR|O_CREAT);
+    Decrypt_fd=open(output_path.c_str(),(S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH));
 
       while((check=read(PlainText_fd, (unsigned char *)(&PlainText[0]),16)) != 0) 
     {
-        //padding if text less than 16 bytes
-
-        if(check<16  )
-        {
-            std::cout<<"PADDING";
-            for(int i=check;i<16;i++)
-            {
-                PlainText[i]=0;
-
-            }
-
-        }
-
         dec.Set_Data(PlainText,key);
         dec.Decrypt(DecryptText);
 
